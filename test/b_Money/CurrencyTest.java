@@ -18,6 +18,9 @@ public class CurrencyTest {
 
 	@Test
 	public void testGetName() {
+		/*
+		here we check if getname return correct string
+		 */
 		assertEquals("SEK",SEK.getName());
 		assertEquals("DKK",DKK.getName());
 		assertEquals("EUR",EUR.getName());
@@ -25,6 +28,9 @@ public class CurrencyTest {
 	
 	@Test
 	public void testGetRate() {
+		/*
+		here we check if get rate returns correct rate
+		 */
 		assertEquals(0.15,SEK.getRate(),0);
 		assertEquals(0.20,DKK.getRate(),0);
 		assertEquals(1.5,EUR.getRate(),0);
@@ -32,6 +38,9 @@ public class CurrencyTest {
 	
 	@Test
 	public void testSetRate() {
+		/*
+		here we check if setrate actually sets a new rate
+		 */
 		SEK.setRate(0.16);
 		DKK.setRate(0.21);
 		EUR.setRate(1.6);
@@ -42,11 +51,17 @@ public class CurrencyTest {
 	
 	@Test
 	public void testGlobalValue() {
+		/*
+		here we check if universalValue returns the correct result of this transition
+		 */
 		assertEquals(0.15*50*100,SEK.universalValue(50),0);
 	}
 	
 	@Test
 	public void testValueInThisCurrency() {
+		/*
+		here we check if valueInThisCurrency results in crrect transition from 50 DKK to a amount in SEK
+		 */
 		assertEquals(SEK.getRate() * DKK.getRate() * 50 * 100,SEK.valueInThisCurrency(50,DKK),0);
 	}
 
